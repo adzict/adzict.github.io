@@ -15,3 +15,15 @@ Hey, nice to meet you, you found this Jekyll theme. Here the yet another
 theme is a modern theme, and it's quite clear, clean and neat for writers
 and posts.
 </p>
+
+{% if site.data.social-media %}
+<div id="social-media">
+    {% assign sm = site.data.social-media %}
+    {% for entry in sm %}
+        {% assign key = entry | first %}
+        {% if sm[key].id %}
+            <a href="{{ sm[key].href }}{{ sm[key].id }}" title="{{ sm[key].title }}"><i class="fa {{ sm[key].fa-icon }}"></i></a>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endif %}

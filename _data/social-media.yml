@@ -1,0 +1,18 @@
+email:
+  id: 'adzic.tanja@gmail.com'
+  href: 'mailto:'
+  title: 'Email'
+  fa-icon: 'fa-envelope-square'
+
+twitter:
+  id: 'adzict'
+  href: 'https://www.twitter.com/'
+  title: 'Twitter'
+  fa-icon: 'fa-twitter-square'
+
+github:
+  id: 'adzict'
+  href: 'https://github.com/'
+  title: 'GitHub'
+  fa-icon: 'fa-github-square'
+
