@@ -16,3 +16,8 @@ github:
   title: 'GitHub'
   fa-icon: 'fa-github-square'
 
+linkedin:
+  id: 'in/tanja-adžić/'
+  href: 'https://www.linkedin.com/'
+  title: 'LinkedIn'
+  fa-icon: 'fa-linkedin-square'
