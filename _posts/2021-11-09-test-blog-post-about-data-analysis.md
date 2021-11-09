@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Welcome to Jekyll!
-subheading: A awesome static site generator.
-author: Jeffrey
-categories: jekyll
+title: This is a Test Blog Post about Data Analysis!
+subheading: How do you analyze data?
+author: Tanja
+categories: data analysis
 banner:
   video: https://vjs.zencdn.net/v/oceans.mp4
   loop: true
@@ -16,7 +16,7 @@ banner:
   min_height: "38vh"
   heading_style: "font-size: 4.25em; font-weight: bold; text-decoration: underline"
   subheading_style: "color: gold"
-tags: jekyll theme yat
+tags: data analysis
 sidebar: []
 ---
 
