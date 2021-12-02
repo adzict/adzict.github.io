@@ -186,14 +186,13 @@ p {
   top: 0;
 }
 #header .logo {
-  font-size: 30px;
+  font-size: 25px;
   margin: 0;
   padding: 0;
   line-height: 1;
   font-weight: 600;
   letter-spacing: 1px;
   font-family: "Playfair Display", sans-serif;
-  font-style: italic;
 }
 #header .logo a {
   color: #34293d;
