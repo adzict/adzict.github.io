@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>how to | Cleaning and preparing a movie dataset</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="../assets/img/dev_favicon.ico" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,500,500i,600,600i,700,700i|Playfair+Display:400,400i,500,500i,600,600i,700,700i,900,900i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top header-inner-pages">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <!-- <a href="index.html" class="logo"><img src="assets/img/logo2.png" alt="" class="img-fluid"></a> -->
+      <!-- Uncomment below if you prefer to use an text logo -->
+      <h1 class="logo"><a href="index.html">tanja adžić</a></h1>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link" href="../index.html">Home</a></li>
+          <!-- <li><a class="nav-link" href="#about">About</a></li> -->
+          <li><a class="nav-link" href="../projects.html">Projects</a></li>
+          <li><a class="nav-link active" href="../blogs.html">Blog</a></li>
+          <!-- <li><a class="nav-link" href="#contact">Contact</a></li> -->
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= BLOG TEMPLATE ======= -->
+
+
+    <!--  links in the text  -->
+    <!-- data preprocessing https://en.wikipedia.org/wiki/Data_pre-processing -->
+    <!-- GIGO https://en.wikipedia.org/wiki/Garbage_in,_garbage_out -->
+    <!-- repository https://github.com/adzict/box_office_determinants -->
+    <!-- feature engineering https://en.wikipedia.org/wiki/Feature_engineering -->
+    <!-- dataset https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset -->
+    <!-- quantitative https://stats.oecd.org/glossary/detail.asp?ID=2219 -->
+    <!-- qualitative https://stats.oecd.org/glossary/detail.asp?ID=3494 -->
+    <!-- python data types https://docs.python.org/3/library/stdtypes.html -->
+    <!-- missing data https://www.mastersindatascience.org/learning/how-to-deal-with-missing-data/ -->
+    <!-- pairplot https://seaborn.pydata.org/generated/seaborn.pairplot.html -->
+    <!-- displot https://seaborn.pydata.org/generated/seaborn.displot.html#seaborn.displot -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+
+    <div class="main-content paddsection">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="row">
+              <div class="container-main single-main">
+                <div class="col-md-12">
+                  <div class="block-main mb-30">
+                    <img src="../assets/img/blog-post-big.jpg" class="img-responsive" alt="reviews2">
+                    <div class="content-main single-post padDiv">
+                      <div class="journal-txt">
+                        <h4><a href="#">how to | Cleaning and preparing a movie dataset</a></h4>
+                      </div>
+                      <div class="post-meta">
+                        <ul class="list-unstyled mb-0">
+                          <li class="author">by:<a href="#">Tanja Adžić</a></li>
+                          <li class="date">date:<a href="#">31-12-2021</a></li>
+                          <!-- commented out the number of comments -->
+                          <!-- <li class="commont"><i class="ion-ios-heart-outline"></i><a href="#">3 Comments</a></li> -->
+                        </ul>
+                      </div>
+                      <p class="mb-30">Hi! Welcome to my > how to < post series. This post will teach you how to identify inadequate data, and prepare it for further analysis using a movie dataset. We will go through the basic steps of data cleaning, which is the first step in <a href="https://en.wikipedia.org/wiki/Data_pre-processing">data preprocessing.</a>
+                      Quality of data is very important for the data analysis process, and you can learn more about it by reffering to the <a href="https://en.wikipedia.org/wiki/Garbage_in,_garbage_out">GIGO concept.</a></p>
+
+                      <p class="mb-30">Please note this a descriptive post, and not a code-along type post. You can find the corresponding code in this <a href="https://github.com/adzict/box_office_determinants">repository.</a></p>
+
+                      <h3><strong>The Data Science Process</strong></h3>
+
+                      <p class="mb-30">In short, the Data Science process includes defining a goal - a business question or a research goal - , gathering and preprocessing data, <a href="https://en.wikipedia.org/wiki/Feature_engineering">feature engineering</a>, data exploration, modeling, and presenting your findings.</p>
+
+                      <p class="mb-30">The Data Preprocessing step includes assessing data, cleaning data, data transformation, and data reduction. Assessing and data cleaning focuses on adding, correcting, repairing, or removing data that is irrelevant or incorrect.</p>
+
+                      <p class="mb-30">When it comes to data cleaning, the following are the most common problems you can encounter: missing values and duplicates, irrelevant data, mismatched or mixed data types, outliers and noisy data, and structural errors. I will go through all of them using a movie dataset.</p>
+
+                      <h3><strong>Project Goal</strong></h3>
+
+                      <p class="mb-30">The goal for this specific project was to imagine being a Data Scientist for a Top Movie Studio. Now, this Movie Studio had an unfortunate series of Box Office flops, and naturally the producers decided to question their strategy. In their search for answers, they turned to their friendly neighborhood Data Scientist, where I suggested a new approach: using data to determine what factors go into making a successful film. Luckily, we had a dataset of over 5000 films to mine for insights. My producers asked me to spend some time analyzing the data and present a report detailing my findings, along with recommendations on how to revamp the studio's strategy.</p>
+
+                      <p class="mb-30">In this post I  will not be dealing with the entire Data Science process for this project, only the data cleaning phase. However, it was important to include the project's goal, as it will direct my decision-making when preparing data.</p>
+
+                      <h3><strong>Movie dataset</strong></h3>
+
+                      <p class="mb-30">The following movie dataset was given to me as a starting point in my analysis: <a href="https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset">IMDB_5000_movie_dataset.csv.</a> Firstly, I would like to see what types of data are there, and how many features (variables):</p>
+
+                      <img src="" class="img-responsive" alt="flow chart">
+
+                      <p class="mb-30">There are both <a href="https://stats.oecd.org/glossary/detail.asp?ID=2219">quantitative (numerical)</a> and <a href="https://stats.oecd.org/glossary/detail.asp?ID=3494">qualitative (categorical)</a> data types in the dataset, expressed as <a href="https://docs.python.org/3/library/stdtypes.html">Python data types:</a> int64 and float64 for numerical data, and object for categorical data. There are a variety of features available for our analysis such as box office information,  technical specification of a movie (color, duration, content rating, aspect ratio), then some basic information like language, genre, country of origin, plot keywords, as well as information about the movie's cast and crew, social media popularity, and user and critic reviews. Total of 26 features and 5043 entries!</p>
+
+                      <h3><strong>Missing values</strong></h3>
+
+                      <p class="mb-30">Right off the bat I see that there are missing values in almost every variable. I can identify them so quickly because I know there are total of 5043 entires, and the displayed information shows there is less than 5043 in almost every feature. Now, this can be a potential problem depending on which features contain a large amount of missing data, and how it can be handled.</p>
+
+                      <p class="mb-30">Missing data can be handled in two ways: <a href="https://www.mastersindatascience.org/learning/how-to-deal-with-missing-data/">imputation or removal</a> of data. The initial analysis of the data showed there are total of 2685 missing values, where the highest percent of missing values are in the target value gross with 17.52%, followed by budget with 9.75%. Now, this in fact creates a challenge at the very start of our data cleaning process. Both of these features are tied directly to our project's goal. Gross is the target value, it tells me the total revenue of a particular movie, hence it is clearly an important feature in the project. It also has the highest number of missing values.</p>
+
+                      <p class="mb-30">By looking at a distribution matrix of these missing values, I can confirm that gross has the highest number of missing values, but I cannot see any obvious pattern:</p>
+
+                      <img src="" class="img-responsive" alt="flow chart">
+
+                      <p class="mb-30">My research tells me there is no particular reason why a movie studio would not disclose their revenue, therefore I am inclined to think this information can be retrieved and added to the dataset. However, further research showed that movie studios can be reluctant in disclosing budgets for a particular movie, which can lead me to believe the missing data is hard to obtain or it is not retrievable. Best course of action would be to remove movies with missing budget values, and scrape for gross values of the remaining movies.</p>
+
+                      <p class="mb-30">Because the time needed to research and input missing data exceeded this projects time frame goals, I decided to remove the missing data from the dataset.</p>
+
+                      <h3><strong>Duplicate rows</strong></h3>
+
+                      <p class="mb-30">Removing duplicates from a dataset is very important because we want to avoid misleading information, and  maintain accuracy. By analyzing my dataset, I determined there are total of 247 duplicate rows, which I then proceeded to remove.</p>
+
+                      <h3><strong>Outliers</strong></h3>
+                      
+                      <p class="mb-30">Identifying anomalies in the dataset can be tricky just by looking at it, so it is good practice to visualize it, as we humans are more likely to catch patterns by looking at shapes rather than numbers. A <a href="https://seaborn.pydata.org/generated/seaborn.pairplot.html">pairplot</a> does wonders for visualizing pairwise relationships. Because there are many numerical features in the dataset, I choose couple of variables I deemed might be important:</p>
+
+                      <img src="" class="img-responsive" alt="flow chart">
+
+                      <p class="mb-30">I noticed something is not right with the budget values. It appears there is a huge spike, it could mean an abnormal value. I am going to plot distributed budget values using a <a href="https://seaborn.pydata.org/generated/seaborn.displot.html#seaborn.displot">displot</a>, and see what might be causing the huge spike:</p>
+
+                      <img src="" class="img-responsive" alt="flow chart">
+                      
+                      <p class="mb-30">There is something clearly wrong as the $4000 MM value is incredibly large for a movie budget. I found the value to be incorrectly recorded for one particular movie, and I corrected it by finding the correct budget value on the IMDB website.</p>
+
+                      <h3><strong>Mismatched data types</strong></h3>
+
+                      <p class="mb-30">My initial research regarding the one incorrect budget entry, discovered another problem, this time a mismatched data type problem. I found that specific budget values were actually in the currency of the country of origin. As such they did not represent the actual budget and gross values expressed in US dollars (USD) as I initially assumed. The highest value is a South Korean movie with a budget of 4000 million Korean wons (KRW). This is a good example of mismatched data types, which calls for either normalizing data to represent one currency, or removing it.</p>
+                      
+                      <img src="" class="img-responsive" alt="flow chart">
+
+                      <p class="mb-30">Further research showed that movies that originated in the United States share the same currency: USD. I found that to be true for movies originating from English speaking countries as well: UK, New Zealand, Australia - they all have their budget values expressed in US dollars. The best course of action would be to update the budget values to a uniform currency in USD. However, this raises a couple of questions: are budget values corrected for inflation accross all coutries in the dataset, and is there a reliable way to convert said budget values to another currency? The answers to both questions are that I cannot be sure, and it would be reasonable to ask for that information from the source, specifically if the values were corrected for inflation, and for the date of creation of the dataset in order to find the rate of exchange. However, because of the limited project time frame, I decided to remove all non-English speaking movies from the dataset.</p>
+
+                      <h3><strong>Structural errors</strong></h3>
+
+                      <p class="mb-30">Structural errors usually involve typos, inconsistent capitalization, as well as mislabeled classes. They can be found in categorical features, which we have plenty of in this dataset. However, after checking values in the categorical features, I was not able to find any structural errors.</p>
+
+                      <h3><strong>Conclusion</strong></h3>
+                      
+                      <p class="mb-30">The data cleaning phase of a projects is just as important as any other, as here we make sure that data is usable, consistent, and transformed to suit the project goals. Missing values, noisy data, duplicates, and structural errors are quite common, and it is very important to make your decisions goal-oriented in order to get the most suitable sample for further analysis and modeling. It takes time to prepare data as it is very likely that this is the step we will go back to many times in our project, in order to correct any errors or inconsistencies we did not catch earlier, or to transform data to a more suitable form. A good solution is to create a script, and automate the process of data cleaning, as it takes off the workload significantly.</p>
+                      
+                      <p class="mb-30"></p>
+                      
+                  </div>
+                </div>
+
+                <!-- commented out comments -->
+
+
+                <!-- commented out the form for posting comments -->
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div><!-- End BLOG TEMPLATE -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <div id="footer" class="text-center">
+    <div class="container">
+      <div class="socials-media text-center">
+
+        <ul class="list-unstyled">
+          <li><a href="https://github.com/adzict"><i class="bi bi-github"></i></a></li>
+          <li><a href="https://twitter.com/adzic_tanja"><i class="bi bi-twitter"></i></a></li>
+          <li><a href="https://www.linkedin.com/in/tanja-ad%C5%BEi%C4%87/"><i class="bi bi-linkedin"></i></a></li>
+        </ul>
+
+      </div>
+
+      <p>&copy; Copyrights Folio. All rights reserved.</p>
+
+      <div class="credits">
+        <!--
+        All the links in the footer should remain intact.
+        You can delete the links only if you purchased the pro version.
+        Licensing information: https://bootstrapmade.com/license/
+        Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=Folio
+      -->
+        This is a template designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> and is available for
+        commercial use.
+      </div>
+
+    </div>
+  </div><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../assets/vendor/typed.js/typed.min.js"></script>
+  <script src="../assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>
