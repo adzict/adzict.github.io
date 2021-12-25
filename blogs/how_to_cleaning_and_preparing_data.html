@@ -86,7 +86,7 @@
               <div class="container-main single-main">
                 <div class="col-md-12">
                   <div class="block-main mb-30">
-                    <img src="../assets/img/blog-post-big.jpg" class="img-responsive" alt="reviews2">
+                    <img src="../blogs/img/box_office_data_cleaning/header.jpeg" class="img-responsive" alt="reviews2">
                     <div class="content-main single-post padDiv">
                       <div class="journal-txt">
                         <h4><a href="#">how to | Cleaning and preparing a movie dataset</a></h4>
@@ -122,7 +122,7 @@
 
                       <p class="mb-30">The following movie dataset was given to me as a starting point in my analysis: <a href="https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset">IMDB_5000_movie_dataset.csv.</a> Firstly, I would like to see what types of data are there, and how many features (variables):</p>
 
-                      <img src="" class="img-responsive" alt="flow chart">
+                      <img src="../blogs/img/box_office_data_cleaning/basic info.png" class="img-responsive" alt="dataset information">
 
                       <p class="mb-30">There are both <a href="https://stats.oecd.org/glossary/detail.asp?ID=2219">quantitative (numerical)</a> and <a href="https://stats.oecd.org/glossary/detail.asp?ID=3494">qualitative (categorical)</a> data types in the dataset, expressed as <a href="https://docs.python.org/3/library/stdtypes.html">Python data types:</a> int64 and float64 for numerical data, and object for categorical data. There are a variety of features available for our analysis such as box office information,  technical specification of a movie (color, duration, content rating, aspect ratio), then some basic information like language, genre, country of origin, plot keywords, as well as information about the movie's cast and crew, social media popularity, and user and critic reviews. Total of 26 features and 5043 entries!</p>
 
@@ -134,7 +134,7 @@
 
                       <p class="mb-30">By looking at a distribution matrix of these missing values, I can confirm that gross has the highest number of missing values, but I cannot see any obvious pattern:</p>
 
-                      <img src="" class="img-responsive" alt="flow chart">
+                      <img src="../blogs/img/box_office_data_cleaning/missing values distr.png" class="img-responsive" alt="distribution of missing values">
 
                       <p class="mb-30">My research tells me there is no particular reason why a movie studio would not disclose their revenue, therefore I am inclined to think this information can be retrieved and added to the dataset. However, further research showed that movie studios can be reluctant in disclosing budgets for a particular movie, which can lead me to believe the missing data is hard to obtain or it is not retrievable. Best course of action would be to remove movies with missing budget values, and scrape for gross values of the remaining movies.</p>
 
@@ -148,11 +148,11 @@
                       
                       <p class="mb-30">Identifying anomalies in the dataset can be tricky just by looking at it, so it is good practice to visualize it, as we humans are more likely to catch patterns by looking at shapes rather than numbers. A <a href="https://seaborn.pydata.org/generated/seaborn.pairplot.html">pairplot</a> does wonders for visualizing pairwise relationships. Because there are many numerical features in the dataset, I choose couple of variables I deemed might be important:</p>
 
-                      <img src="" class="img-responsive" alt="flow chart">
+                      <img src="../blogs/img/box_office_data_cleaning/pairplot specific variables.png" class="img-responsive" alt="pairplot">
 
                       <p class="mb-30">I noticed something is not right with the budget values. It appears there is a huge spike, it could mean an abnormal value. I am going to plot distributed budget values using a <a href="https://seaborn.pydata.org/generated/seaborn.displot.html#seaborn.displot">displot</a>, and see what might be causing the huge spike:</p>
 
-                      <img src="" class="img-responsive" alt="flow chart">
+                      <img src="../blogs/img/box_office_data_cleaning/budget outlier.png" class="img-responsive" alt="budget outlier">
                       
                       <p class="mb-30">There is something clearly wrong as the $4000 MM value is incredibly large for a movie budget. I found the value to be incorrectly recorded for one particular movie, and I corrected it by finding the correct budget value on the IMDB website.</p>
 
@@ -160,7 +160,7 @@
 
                       <p class="mb-30">My initial research regarding the one incorrect budget entry, discovered another problem, this time a mismatched data type problem. I found that specific budget values were actually in the currency of the country of origin. As such they did not represent the actual budget and gross values expressed in US dollars (USD) as I initially assumed. The highest value is a South Korean movie with a budget of 4000 million Korean wons (KRW). This is a good example of mismatched data types, which calls for either normalizing data to represent one currency, or removing it.</p>
                       
-                      <img src="" class="img-responsive" alt="flow chart">
+                      <img src="../blogs/img/box_office_data_cleaning/mismatched data-currency.png" class="img-responsive" alt="flow chart">
 
                       <p class="mb-30">Further research showed that movies that originated in the United States share the same currency: USD. I found that to be true for movies originating from English speaking countries as well: UK, New Zealand, Australia - they all have their budget values expressed in US dollars. The best course of action would be to update the budget values to a uniform currency in USD. However, this raises a couple of questions: are budget values corrected for inflation accross all coutries in the dataset, and is there a reliable way to convert said budget values to another currency? The answers to both questions are that I cannot be sure, and it would be reasonable to ask for that information from the source, specifically if the values were corrected for inflation, and for the date of creation of the dataset in order to find the rate of exchange. However, because of the limited project time frame, I decided to remove all non-English speaking movies from the dataset.</p>
 
