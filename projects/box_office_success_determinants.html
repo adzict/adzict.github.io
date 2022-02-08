@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Project Template</title>
+  <title>Box Office Success Determinants</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -61,7 +61,7 @@
       <div class="container">
 
         <div class="d-flex justify-content-between align-items-center">
-          <h2>PROJECT NAME</h2>
+          <h2>Box Office Success Determinants</h2>
           <ol>
             <li><a href="../index.html">Home</a></li>
             <li><a href="../projects.html">Projects</a></li>
@@ -83,9 +83,9 @@
               <div class="swiper-wrapper align-items-center">
 
                 <div class="swiper-slide">
-                  <img src="../assets/img/portfolio/portfolio-details-1.jpg" alt="">
+                  <img src="../projects/img/box_office_success/box office header.jpg" alt="">
                 </div>
-
+<!--
                 <div class="swiper-slide">
                   <img src="../assets/img/portfolio/portfolio-details-2.jpg" alt="">
                 </div>
@@ -93,7 +93,7 @@
                 <div class="swiper-slide">
                   <img src="../assets/img/portfolio/portfolio-details-3.jpg" alt="">
                 </div>
-
+-->
               </div>
               <div class="swiper-pagination"></div>
             </div>
@@ -103,10 +103,10 @@
             <div class="portfolio-info">
               <h3>Project information</h3>
               <ul>
-                <li><strong>Category</strong>: Web design</li>
-                <li><strong>Client</strong>: ASU Company</li>
-                <li><strong>Project date</strong>: 01 March, 2020</li>
-                <li><strong>Project URL</strong>: <a href="#">www.example.com</a></li>
+                <li><strong>Category</strong>: Data Analysis</li>
+                <li><strong>Client</strong>: a fictional Top Movie Studio</li>
+                <!--<li><strong>Project date</strong>: 01 March, 2020</li>-->
+                <li><strong>Project URL</strong>: <a href="https://github.com/adzict/box_office_determinants">Box Office Success Determinants Repository</a></li>
               </ul>
             </div>
 
@@ -121,9 +121,118 @@
 
             <!-- ========= PROJECT TEXT ========== -->
           </div>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque porro nobis et eius ex assumenda vitae quis
-            veritatis recusandae, minus quam aspernatur consectetur reiciendis possimus molestiae totam earum molestias
-            officiis!</p>
+
+          <h3><strong>Introduction</strong></h3>
+
+          <p>As Data Scientists we are equipped to answer a variety of questions, including questions that might seem to have an obvious solution, but in fact they are not easily answered. Usually, this kind of answers come in various forms, such as recommendations. As part of my mentorship, I was tasked to imagine being a Data Scientist for a Top Movie Studio. Now, this Movie Studio had an unfortunate series of Box Office flops, and naturally the producers decided to question their strategy. In their search for answers, they turned to their friendly neighborhood Data Scientist, where I suggested a new approach: using data to determine what factors go into making a successful film. Luckily, we had a dataset of over 5000 films to mine for insights. My producers asked me to spend some time analyzing the data and present a report detailing my findings, along with recommendations on how to revamp the studio’s strategy.</p>
+
+          <p>Firstly, I made a couple of assumptions on what I think what makes a movie a success. It must be the budget, right? If the budget is high enough, the movie will surely make money. What about hiring top-notch directors and producers? They know their job. And of course, I will always watch every Meryl Streep movie, for me that’s a sell right there. Does the choice of actors really sells the movie? Also, I don’t really prefer dramas, but I will watch them if they are scored high enough on IMDB. I like horror movies, but all my friends and family mostly watch adventure and action movies. Does the genre matter when it comes to profit? I will dive into these assumptions, and investigate if and how well they hold. Based on my findings, I will make recommendations for the studio.</p>
+          
+          <h3><strong>Structure and The Data</strong></h3>  
+
+          <p>This is a descriptive blog post that follows the data analysis done for the project. I will not include code in this post. You can find all additional information about the project and the code in this <a href="https://github.com/adzict/box_office_determinants">repository</a>.</p>
+
+          <p>The project was done using Python, Numpy, Pandas, Matplotlib, Seaborn, and NLTK.</p>
+
+          <p>The data was originally taken from <a href="https://www.kaggle.com/carolzhangdc/imdb-5000-movie-dataset">Kaggle</a>, but it is also available in the repositories’ data folder.</p>
+
+          <p>This blog post will only focus on exploring, answering the project’s goals, and making recommendations. The data preprocessing stage is presented as a separate blog post that you can find <a href="https://adzic-tanja.medium.com/how-to-cleaning-and-preparing-a-movie-dataset-5dce3cab86f8">here</a>.</p>
+
+          <h3><strong>The Project Goal</strong></h3>  
+
+          <p>To make the analysis of the dataset more feasible, I converted some of my assumptions to a set of questions that will drive answers and recommendations. These questions are as follows:</p>
+
+          <ul>
+            <li>What is the correlation between budget and profit? Which budget ranges should be considered for making a Box Office success?</li>
+            <li>Do actors/actresses and directors play a role in a movie’s success?</li>
+            <li>How does a movie’s score rating impact profit?</li>
+            <li>How does the trend of profit, revenue, profit margin, and other attributes change over years, and can it be relevant to future strategy?</li>
+            <li>How do genres play in with profit and profit margin?</li>
+            <li>Is there a pattern in common plot keywords with successful movies?</li>
+            <li>Are duration and content rating relevant to profit?</li>
+            <li>What can we learn from number of votes, and critic reviews in regard to genres and profit?</li>
+          </ul>
+
+          <h3><strong>Feature Engineering</strong></h3>  
+
+          <p>For the purpose of the analysis, I needed to derive new features that will help me measure the success of a movie in different ways. I used <a href="https://en.wikipedia.org/wiki/Feature_engineering">Feature engineering</a> in the process, and created the following features:</p>
+
+          <ol>
+            <li><a href="https://en.wikipedia.org/wiki/Profit_(economics)">Profit</a> — is defined as a financial gain, especially the difference between the amount earned, and the amount spent in buying, operating, or producing something. In our case, it is very valuable to learn in terms of budget and revenue.</li>
+            <li><a href="https://en.wikipedia.org/wiki/Return_on_investment">Return of Investment (ROI)</a> — is a popular profitability metric used to evaluate how well an investment has performed. ROI tries to directly measure the amount of return on a particular investment, relative to the investment’s cost.</li>
+            <li><a href="https://en.wikipedia.org/wiki/Profit_margin">Profit Margin</a> — shows the overall ability to turn income into profit.</li>
+            <li>Value Above Replacement (VAR) — is a statistics I found from <a href="https://github.com/jeremy-lee93/dsc-mod-1-project-v2-1-onl01-dtsc-pt-052620">jeremy-lee93</a> and included it in my analysis as I found it to be very useful, and it is an adapted version of VORP. It basically measures the number of times an actor/actress or a director appeared in movies with an above average profit. As an example, an actor has a VAR = 2 if the average profit from his movies is $200, compared to the average profit of all movies, which is $100.</li>
+          </ol>
+
+          <h3><strong>What is the correlation between budget and profit? Which budget ranges should be considered for making a Box Office success?</strong></h3>  
+
+          <p>Budget and profit show a coherent positive linear relationship, which means that the higher the budget, the higher the profit of a movie. However, the trend line showing the relationship between profit margin and budget is negative, which can be explained by the following: if you spend too much money on making a movie, you can potentially decrease your profit margin. When I visualize the relationship between budget and profit using top 30 most profitable movies, I can see a clear perspective of the above-mentioned trend:</p>
+
+          <img src="../projects/img/box_office_success/profit budget top 30 profitable.png" class="img-responsive" alt="top_30_profitable">
+
+          <p><strong>Strategy recommendation:</strong> I recommend that the optimal budget value for making a successful movie should not be less than $40 MM, and on average I recommend it to be somewhere around $75 MM, as on average these budgets result with a good profit margin above 0.6.(This recommendation was made based on a profit margin greater than 0.6.) There is evidence that higher budget movies risk a smaller profit margin, as shown in the analysis, therefore I cannot support the claim that large budgets are a certain indicator of a Box Office success.</p>
+
+          <h3><strong>Do actors/actresses and directors play a role in a movie’s success?</strong></h3>    
+
+          <p>I visualized the VAR score of the top 30 actors and actresses that appeared in at least 5 movies. The results are quite interesting:</p>
+
+          <img src="../projects/img/box_office_success/VAR actors.png" class="img-responsive" alt="image">
+
+          <p>It appears Robert Pattison brings 9 times the average profit value in movies! That is quite impressive. He is followed by Steve Carell and Jennifer Lawrence with pretty high VAR scores. I can conclude that having a good VAR rated actor or an actress does impact a movie’s profit. Now let’s see which values do directors bring to a movie, having directed at least 3 movies:</p>
+
+          <img src="../projects/img/box_office_success/VAR directors.png" class="img-responsive" alt="image">
+
+          <p>It appears that having a good VAR score rated director is even more valuable to a movie’s profit, than that of an actor or an actress. George Lucas scored an impressive 12 times the average profit value! And all top 30 directors visualized above bring more than average net profit to a movie.</p>
+
+          <p><strong>Strategy recommendation: </strong>With great certainty, I can recommend that the studio takes into account the VAR score of an actor or an actress when hiring, and even more so the VAR score of the person who will direct the movie: For actors and actresses, I recommend a range value of VAR between 1.0 and 3.0.For directors, I recommend a range value of VAR between 1.0 and 2.50</p>
+
+          <h3><strong>How does a movie’s score rating impact profit?</strong></h3>
+
+          <p>When I am deciding on which movie to watch, I always check on its IMDB score. It tells me a very simple information: do people think that this movie is worth watching? I decided to visualize movies with scores above 7, and their upper and lower profit ends, and see if there is a trend:</p>
+
+          <img src="../projects/img/box_office_success/scores profit.png" class="img-responsive" alt="image">
+
+          <p>There is a trend: movies with higher profits score higher among its audience. Now, I would like to see how do movies score among top 20 directors with at least 5 movies in their career:</p>
+
+          <img src="../projects/img/box_office_success/score directors.png" class="img-responsive" alt="image">
+
+          <p>I definitely see names from our VAR histogram above! There is undoubtedly room for a recommendation based on a mean score a director’s movies have.</p>
+
+          <p><strong>Strategy recommendation: </strong> I recommend taking into account the average movie scores (not less than 7.0) of a director, when hiring one. I consider it might have a positive impact on profit. Another recommendation regarding movie scores will be in relation to movie’s genre, and will be detailed later in the report.</p>
+
+          <h3><strong>How does the trend of profit, revenue, profit margin, and other attributes change over years, and can it be relevant to future strategy?</strong></h3>
+
+          <p>In order to learn about trends that happened over almost 100 years of the movie industry, I considered the whole sample size in the period from 1929 till 2016. The general trend of number of movies made per year looks like this:</p>
+
+          <img src="../projects/img/box_office_success/year trend movies count.png" class="img-responsive" alt="image">
+
+          <p>I disregarded the obvious drop in the number of movies at the end of 2016, as our sample size only contains a small amount of movies made in 2016, and cannot be taken into account. I identified a sharp rise in the ’90s, as the industry started to bloom, and is in accordance with the technological advances happening at the time. The new millennium brought us somewhere from 125 to 175 English-speaking movies per year.</p>
+
+          <p>Let’s see some trends in budget values, revenues, and profit over years:</p>
+
+          <img src="../projects/img/box_office_success/year trend profit budget gross margin.png" class="img-responsive" alt="image">
+        
+          <p>I’m guessing the first thing you saw was that huge spike in profit and gross plots somewhere around the year 1940. Well, the three huge Box Office successes responsible for the spike in that period were Gone with the Wind with an astounding $194.6MM profit, Snow White and the Seven Dwarfs with an equally impressive $182.9MM profit, and Pinocchio with $81.7MM profit. Now, another thing you might have noticed is that budget values are on a constant rise since the ’70s, and are at their highest at the moment. However, profit is not following the rising trend. Let’s see these two variables in close up:</p>
+
+          <img src="../projects/img/box_office_success/year trend budget profit.png" class="img-responsive" alt="image">
+
+          <p>Profit is slightly decreasing since mid ’90s, and the budget values are rising. I can hypothesize that costly technology and staff needed for creating a feature movie is costing more than before, however I do not have the data needed to support this hypothesis at the moment, and it is out of scope for this project.</p>
+
+          <p><strong>Strategy recommendation: </strong>I have no relevant recommendations to make at this time regarding trends over years.</p>
+
+          <h3><strong></strong></h3>
+
+          <p></p>
+
+
+          <a href="link">text</a>
+
+          <img src="../projects/img/box_office_success/" class="img-responsive" alt="image">
+
+          <h3><strong></strong></h3>    
+          
+          <strong>Strategy recommendation: </strong>
+
         </div>
 
       </div>
