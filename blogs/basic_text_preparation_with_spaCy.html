@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Blog Template</title>
+  <title>learning | Basic text preparation with spaCy</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -66,52 +66,136 @@
                 <div class="col-md-12">
                   <div class="block-main mb-30">
                     <!-- ======= PICTURE HEADER 800x600 ======= -->
-                    <img src="../assets/img/blog-post-big.jpg" class="img-responsive" alt="reviews2">
+                    <img src="../blogs/img/spacy_blog/0 - header.jpg" class="img-responsive" alt="reviews2">
                     <div class="content-main single-post padDiv">
                       <div class="journal-txt">
-                        <h4><a href="#">BLOG TITLE</a></h4>
+                        <h4><a href="#">learning | Basic text preparation with spaCy</a></h4>
                       </div>
                       <div class="post-meta">
                         <ul class="list-unstyled mb-0">
                           <li class="author">by:<a href="#">tanja adžić</a></li>
-                          <li class="date">date:<a href="#">ADD DATE</a></li>
+                          <li class="date">date:<a href="#">02-02-2022</a></li>
                           <!-- commented out the number of comments -->
                           <!-- <li class="commont"><i class="ion-ios-heart-outline"></i><a href="#">3 Comments</a></li> -->
                         </ul>
                       </div>
-                      <p class="mb-30">It is a long established fact that a reader will be distracted by the readable
-                        content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a
-                        more-or-less normal distribution of letters, as opposed to
-                        using 'Content here, content here', making it look like readable English. Many desktop
-                        publishing packages and web page editors now use Lorem Ipsum as their default model text, and a
-                        search for 'lorem ipsum' will uncover many web
-                        sites still in their infancy. Various versions have evolved over the years, sometimes by
-                        accident, sometimes on purpose (injected humour and the like).</p>
-                      <p class="mb-30">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
-                        Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
-                        took a galley of type and scrambled it to make a type
-                        specimen book. It has survived not only five centuries, but also the leap into electronic
-                        typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release
-                        of Letraset sheets containing Lorem Ipsum passages,
-                        and more recently with desktop publishing software like Aldus PageMaker including versions of
-                        Lorem Ipsum.</p>
-                      <blockquote>If you are still looking for that one person who will change your life, take a look in
-                        the mirror.</blockquote>
 
-                        <!-- ======= PICTURE IN TEXT 640x480 ======= -->
-                      <img src="../assets/img/blog-post-1.jpg" class="img-responsive" alt="flow chart">
+                      <!-- ======= PICTURE IN TEXT 640x480 ======= -->
+                      <p></p>
+                      <h3><strong>Introduction</strong></h3>
 
+                      <p class="mb-30">Have you ever asked Google to wake you up tomorrow at 7 a.m? Or how old is Madonna? In both cases, you can thank Natural Language Processing for your machine’s ability to understand and process words, and sequentially give you an answer. <a href="https://en.wikipedia.org/wiki/Natural_language_processing">Natural Language Processing</a> or NLP for short is a subfield of Computer Science and Artificial Intelligence that deals with processing and analyzing large amounts of raw language data. It is easy for us to understand a language, our natural language, however, for a computer this represents an impossible task, unless we “translate” our natural language to the language a computer can understand. Natural Language Processing uses various techniques in order to create structure out of language data, and for that we use different toolkits and libraries.</p>
 
-                      <p class="mb-30">Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots
-                        in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard
-                        McClintock, a Latin professor at Hampden-Sydney College in
-                        Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum
-                        passage, and going through the cites of the word in classical literature, discovered the
-                        undoubtable source. Lorem Ipsum comes from sections
-                        1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by
-                        Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during
-                        the Renaissance. The first line of Lorem Ipsum,
-                        "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.</p>
+                      <p class="mb-30">The goal of this post is to guide you through the basic steps of using spaCy and its functionalities with code examples, and useful definitions. I recommend having at least basic knowledge of the Python programming language before diving into this post, as spaCy is a <a href="https://www.geeksforgeeks.org/libraries-in-python/">Python library.</a></p>
+
+                      <h3><strong>Common NLP Tasks and Use Cases</strong></h3>
+
+                      <p class="mb-30">The most common general use cases of NLP are:</p>
+
+                      <p class="mb-30">
+                        <ul>
+                          <li>Voice recognition</li>
+                          <li>Translation, autocomplete, and autocorrect</li>
+                          <li>Analyzing sentiment of customer reviews, classifying e-mails as spam vs. legitimate</li>
+                          <li>Chatbots</li>
+                          <li>Automatic text summarization</li>
+                        </ul>
+                      </p>
+
+                      <p class="mb-30">NLP has also a variety of use cases in the healthcare, finance, retail and e-commerce, and cybersecurity.</p>
+
+                      <p class="mb-30">The most common <a href="https://en.wikipedia.org/wiki/Natural_language_processing#Common_NLP_tasks">NLP tasks</a> include tokenization, lemmatization, stop words, tagging parts of speech, and word frequency. In this post, I will define and describe these common tasks, as well as provide an example using spaCy.</p>
+
+                      <h3><strong>What is spaCy?</strong></h3>
+
+                      <p class="mb-30"><a href="https://spacy.io/">spaCy</a> is an open-source software library for Natural Language Processing, written in Python. It was created back in 2015, and since then it has become widely used for NLP tasks. It is fast and efficient, and it uses the latest state-of-the-art approaches. spaCy helps us process and “understand” large volumes of text. It can be used to build information extraction or natural language understanding systems, or to pre-process text for deep learning.</p>
+
+                      <p class="mb-30">Installing spaCy is fairly easy, and it depends on which operating system you use. Currently, the latest version of spaCy is 3.2, check out their website for <a href="https://spacy.io/usage">installation instructions.</a></p>
+
+                      <h3><strong>Using spaCy</strong></h3>
+
+                      <p class="mb-30">In order to use spaCy, first we need to import it, and load the language model we want to use as an instance (in this case the language model is English). This instance is commonly named nlp:</p>
+
+                      <img src="../blogs/img/spacy_blog/1 - spacy_import_loadmodel.png" class="img-responsive" alt="image">
+
+                      <p class="mb-30">‘en-core-web-sm’ is the English language model. The next step is to create a container for accessing linguistic annotations, called <a href="https://spacy.io/api/doc">Doc.</a> This step converts the given example text to a structure that spaCy can understand:</p>
+
+                      <img src="../blogs/img/spacy_blog/2 - creating_doc.png" class="img-responsive" alt="image">
+
+                      <p class="mb-30">And that is it. Now you can use various spaCy functionalities to discover details about this text, and analyze it. Keep in mind you will need to create the Doc container for every text you want to analyze.</p>
+
+                      <h3><strong>Reading strings and sentences</strong></h3>
+
+                      <p class="mb-30">The most basic functionality of spaCy is reading strings and sentences from a selected text. The first example shows how to print a separated list of words and punctuation from an example text. Notice how spaCy separates all the punctuation from words:</p>
+
+                      <img src="../blogs/img/spacy_blog/3 - separating_words.png" class="img-responsive" alt="image">
+
+                      <p class="mb-30">And what about sentences? spaCy is smart enough to know where a sentence starts and where it ends, here is an example:</p>
+
+                      <img src="../blogs/img/spacy_blog/4 - print_sentence.png" class="img-responsive" alt="image">
+
+                      <p class="mb-30">We can also count how many sentences are there in a given text. I am using a simple list comprehension to do this, but you can also use a for loop:</p>
+
+                      <img src="../blogs/img/spacy_blog/5 - counting_sentences.png" class="img-responsive" alt="image">
+
+                      <p></p>
+                      <h3><strong>Tokenization</strong></h3>
+
+                      <p class="mb-30"><a href="https://nlp.stanford.edu/IR-book/html/htmledition/tokenization-1.html">Tokenization</a> is the process of splitting up a sequence of characters, or a document unit, into pieces called tokens. A token is an instance of a sequence of characters that are part of a greater unit like a text or a document, a basic building block of a Doc object in spaCy. You might find that sometimes tokens are referred to as words or terms, but it is important to make the distinction. So, how does tokenization work in spaCy?</p>
+
+                      <img src="../blogs/img/spacy_blog/6 - tokenization_chart.png" class="img-responsive" alt="image">
+
+                      <p class="mb-30">The very first step spaCy takes is to split the original document on whitespace. Then it moves on to separating the prefix characters from the beginning, then exceptions for splitting a string into several tokens (Let’s becomes Let — ‘s), and finally the suffixes which are characters at the end.</p>
+
+                      <p class="mb-30">We have already mentioned tokenization in the previous section, but in terms of reading strings from a text. Let’s see another example:</p>
+
+                      <img src="../blogs/img/spacy_blog/7 - tokenization_split.png" class="img-responsive" alt="image">
+
+                      <p class="mb-30">The interesting part is seeing how spaCy differentiates between punctuation in a website form, and it categorizes it as a single token, as well as an e-mail form.</p>
+
+                      <p class="mb-30">Another useful functionality for any analysis might be to count the number of tokens, and if necessary extract a specific token using their index:</p>
+
+                      <img src="../blogs/img/spacy_blog/8 - len_index_token.png" class="img-responsive" alt="image">
+
+                      <p></p>
+                      <h3><strong>Part of Speech Tagging (POS)</strong></h3>
+
+                      <p class="mb-30"><a href="https://en.wikipedia.org/wiki/Part-of-speech_tagging">Parts of Speech Tagging</a> is a process of identifying the role a particular word has in a text, based on its definition, as well as the context. There are 9 parts of speech in the English language: noun, verb, article, adjective, preposition, pronoun, adverb, conjunction, and interjection. However, there are subcategories of every part of speech — like the proper noun is part of the noun category. Identifying POS with spaCy is very easy, let’s see an example:</p>
+
+                      <img src="../blogs/img/spacy_blog/9 - POS.png" class="img-responsive" alt="image">
+
+                      <p class="mb-30">You can find more information about all parts of speech tags on <a href="https://spacy.io/api/annotation#pos-tagging">spaCy.</a></p>
+
+                      <h3><strong>Lemmatization</strong></h3>
+
+                      <p class="mb-30"><a href="https://en.wikipedia.org/wiki/Lemmatisation">Lemmatization</a> is a process of identifying a <a href="https://en.wikipedia.org/wiki/Lemma_(morphology)">lemma</a> of a word by applying morphological analysis, and the context in which the word is. A lemma represents a dictionary form of a word — it is a headword. Break, breaks, broke, broken and breaking are all forms of the word break which is their lemma. Let’s see a simple example using spaCy:</p>
+
+                      <img src="../blogs/img/spacy_blog/10 - lemmatization.png" class="img-responsive" alt="image">
+
+                      <p class="mb-30">I used the word jump in several forms, twice as a verb jumped and jumping, and one time as a noun jumper. spaCy correctly identified their lemmas, and POS. In another example, I will show you how spaCy differentiates between two identical words, but with different meaning:</p>
+
+                      <img src="../blogs/img/spacy_blog/11 - lemmatization_meeting.png" class="img-responsive" alt="image">
+
+                      <p class="mb-30">The word meeting has two meanings in this sentence, and spaCy again identified their lemmas correctly based on the context they were in.</p>
+
+                      <p class="mb-30">Lemmatization is an essential process in NLP because it reduces words to their bases, and helps us analyze words as single items.</p>
+
+                      <h3><strong>Stop Words</strong></h3>
+
+                      <p class="mb-30"><a href="https://en.wikipedia.org/wiki/Stop_word">Stop words</a> represent words that are highly frequent in a language, and as such are usually removed from a text that is being analyzed. There is no universal rule as to which words are deemed stop words, therefore, we are able to add words to the existing list. Let’s see how many stop words are in spaCy library:</p>
+
+                      <img src="../blogs/img/spacy_blog/12 - stopwords_length.png" class="img-responsive" alt="image">
+
+                      <p class="mb-30">At this moment there are a total of 326 stop words in the list. Depending on a specific task we are performing, we can add, as well as remove stop words from this list.</p>
+
+                      <p class="mb-30">You can remove stop words from a text in a simple manner by using list comprehension:</p>
+
+                      <img src="../blogs/img/spacy_blog/13 - stopwords_remove.png" class="img-responsive" alt="image">
+
+                      <p></p>
+                      <h3><strong>Conclusion</strong></h3>
+
+                      <p class="mb-30">As mentioned in this post, Natural Language Processing is a very large field of Computer Science, and we have only scratched the tiniest surface of it. We learned about basic and common processes in NLP using spaCy. I encourage you to not stop here, try it yourself, and explore even larger texts and documents using spaCy as an exercise. Examples I used in this post do not represent real-world scenarios where documents can be very large, and text preparation slower. Give it a go!</p>
                     </div>
                   </div>
                 </div>
