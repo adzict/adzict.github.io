@@ -220,18 +220,79 @@
 
           <p><strong>Strategy recommendation: </strong>I have no relevant recommendations to make at this time regarding trends over years.</p>
 
-          <h3><strong></strong></h3>
+          <h3><strong>How do genres play in with profit and profit margin?</strong></h3>
 
-          <p></p>
+          <p>Everyone has a favorite movie genre, and it might be safe to assume that the choice of a movie’s genre can play an important role in terms of profitability. I will check this assumption, but first I would like to see which genres are most commonly produced:</p>
 
+          <img src="../projects/img/box_office_success/genre movie count.png" class="img-responsive" alt="image">
 
-          <a href="link">text</a>
+          <p>Comedy, Action, Drama, and Adventure are the most common genre in the dataset. As a huge horror fan, I was hoping it would rank higher. Oh, well. I also wanted to visualize movie genres in combination with their profit, ROI, budget, and profit margin values, and see if I can spot any pattern:</p>
 
-          <img src="../projects/img/box_office_success/" class="img-responsive" alt="image">
+          <img src="../projects/img/box_office_success/genre profit budget margin.png" class="img-responsive" alt="image">
 
-          <h3><strong></strong></h3>    
-          
-          <strong>Strategy recommendation: </strong>
+          <p>The Animation genre is highly profitable, but also expensive to make. I also see the Family genre among the top profitable, and not as expensive to make, with a reasonable Return of Investment. Interestingly enough, the Horror genre leads by almost a half in terms of ROI, and the profit margin. However, I did not take the profit margin plot into account, as it only shows values below 0.35 margin. Drama ranks low in almost all plots, and it was the most common genre present in our sample size.</p>
+
+          <p>What are the average movie scores of different genres?</p>
+
+          <img src="../projects/img/box_office_success/scores genres.png" class="img-responsive" alt="image">
+
+          <p>It appears that Biographies often score high, as well as Drama genres. Animation movies have a good average score, however the Horror genre is rated quite low on average — below 6. Both Animation and Adventure genres rate above 6 on average among the audiences.</p>
+
+          <p><strong>Strategy recommendation: </strong>I recommend investing in the Animation genre, in the above-mentioned budget range of $40MM to $75MM, as well as Family and Adventure genres, as they show a desirable Return Of Investment, and are not as expensive. Those genres can be on the lower end of the budget recommendations — $40MM.</p>
+
+          <h3><strong>Is there a pattern in common plot keywords with successful movies?</strong></h3>
+
+          <p>To be able to answer this question, I filtered out the most profitable movies, with the profit margin being above 0.6, and created a box-plot visualization of the most common plot keywords found in those movies. Here is the result:</p>
+
+          <img src="../projects/img/box_office_success/plot keywords box plot.png" class="img-responsive" alt="image">
+
+          <p>Unfortunately, I was not able to find any relevant information to the project’s goal, as the context of resulted words is too broad to be able to find a pattern.</p>
+
+          <h3><strong>Are duration and content rating relevant to profit?</strong></h3>
+
+          <p>By exploring the distribution of movie’s duration, I can learn the duration ranges of the majority of movies. It is always better to visualize it, in order to make a relevant conclusion:</p>
+
+          <img src="../projects/img/box_office_success/duration distr.png" class="img-responsive" alt="image">
+
+          <p>The duration of most movies falls between 90 and 120 minutes, and let’s see how well these movies score among audiences:</p>
+
+          <img src="../projects/img/box_office_success/duration scores.png" class="img-responsive" alt="image">
+
+          <p>It appears that movies that last at least 150 minutes, usually score better with scores above 7.5. However, in order to find out the relationship between these two features, I calculated their correlation score, and the resulted score was very low, which means the relationship between movie scores and their duration is not significant.</p>
+
+          <p>When analyzing most common content ratings, and the number of movies, it is clear that the R rated movies are the majority:</p>
+
+          <img src="../projects/img/box_office_success/rating movie count.png" class="img-responsive" alt="image">
+
+          <p>Average scores of movies are around 6.3, and unfortunately, this is not a certain indicator of a potential recommendation. PG-13 content rating is however also largely present in the market, which corresponds with the above findings of profitable genres like Animation, Adventure, and Family.</p>
+
+          <p><strong>Strategy recommendation: </strong>The studio should focus on PG-13 movies, as the most common profitable genres (Animation, Adventure, Family) are in this group.</p>
+
+          <h3><strong>What can we learn from number of votes, and critic reviews in regard to genres and profit?</strong></h3>
+
+          <p>In the dataset I found information on number of users voted for a specific movie title, as well as information on number of critic reviews, and user reviews. However, scales differed greatly, as the total number of votes averaged around 100K, and for user reviews only around 330, and critic reviews 160. Therefore, I will only take into account genres that have the highest number of votes, as well as reviews. The following visualization shows us the number of votes per genre:</p>
+
+          <img src="../projects/img/box_office_success/num_voted_genres.png" class="img-responsive" alt="image">
+
+          <p>The popularity of Drama, Action, Adventure, and Comedy genres is shown again in the above plot, and it makes sense with our previous findings that most movies made are among these four genres. However, Animation genre seems to be less voted on, at this stage I can only speculate why, as I do not have the demographic information of users who voted.</p>
+
+          <p>The next visualization shows the number of critic and user reviews for each genre, and the results are very similar to the plot above:</p>
+
+          <img src="../projects/img/box_office_success/num_voted_reviews_and_critic_genres.png" class="img-responsive" alt="image">
+
+          <p><strong>Strategy recommendation: </strong>There are no significant strategies to be recommended at this moment, without having specific demographic information about users voted, users reviews, and number of critic reviews.</p>
+
+          <h3><strong>Conclusion</strong></h3>
+
+          <p>The Top Movie Studio producers stated a great business question: What are we doing wrong, and what can we do to change our strategy? Fortunately for them, there are many answers to the question, and some of them were presented in this project. I would separate a couple of important recommendations as part of this conclusion.</p>
+
+          <p>The data available showed that budget values between $40 MM and $75 MM, for a good profit margin of 0.6. The most profitable genres are Animation, Adventure, and Family — all three are PG-13 content rating. Also, included in the recommendation, is the importance of directors and actors/actresses. Directors with an average movie score above 7 show great potential to bring significant value to a movie, even so if their VAR score is between 1.0 and 2.5. The same goes for actors/actresses — if their VAR score is between 1.0 and 3.0, they will bring value to a movie.</p>
+
+          <p>As the quest for a more detailed analysis and answers is always on, I will include a couple of Future recommendations that I deem to be potentially valuable to the studio.</p>
+
+          <h3><strong>Future recommendations</strong></h3>
+
+          <p>I recommend including and exploring data on Oscar winning directors, actors/actresses, and movies. During my time working on this project, I wondered if creating sequels is a good opportunity for a successful movie — this is something I would also consider including. Besides that, I would also add demographic information of users if applicable, and other movie studio box office successes in the dataset in order to obtain more detailed analysis. I believe this information would bring additional insight into assessing determinants of a Box Office success.</p>
 
         </div>
 
