@@ -2,7 +2,7 @@
 
 ## BootstrapMade
 
-This is my personal GitHub Page, with a customized [BootstrapMade](https://bootstrapmade.com) theme [Folio](https://bootstrapmade.com/folio-bootstrap-portfolio-template/).
+This is my personal GitHub Page, with a customized [BootstrapMade](https://bootstrapmade.com) theme [Folio](https://bootstrapmade.com/folio-bootstrap-portfolio-template/), available for commercial use.
 
 ## License Information
 
