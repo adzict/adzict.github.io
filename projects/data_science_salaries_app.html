@@ -149,11 +149,85 @@
             <li>Application Deployment</li>
           </ul>
 
-          <p></p>
+          <h3><strong>Deploying the App using Docker, AWS ECR and EC2</strong></h3>
+          
+          <h3><strong>What are the steps?</strong></h3>
+          <p> The idea is to deploy the application using Amazon Web Services (AWS) and its cloud based products. In order to have a fully functioning application on the cloud, these are the steps I will follow: </p>
+          <ul>
+            <li>Create a Docker Image of my application and its dependencies</li>
+            <li>Store the Docker Image on Amazon Elastic Container Registry (ECR)</li>
+            <li>Deploy my container image to Amazon EC2</li>
+          </ul
 
-          <h3><strong></strong></h3>
-          <p></p>      
+          <h3><strong>Creating a Docker Image</strong></h3>
+          <p>A Docker Image is a highly efficient, and convenient way to package everything you need to run your software: from code, libraries, configuration files, an other variables — and then distribute that package, and run the software in a containerized environment. It saves up space, a lot of it. And unnecessary error handling headaches.</p>
 
+          <p>Creating a Docker Image is preceeded by creating a set of instructions in a .txt file called the Dockerfile. The steps in creating a Dockerfile are very easy to follow, and can also be found on the Streamlit website: deploy docker. By following those instructions, I got the following Dockerfile:</p>
+
+          <img src="../projects/img/data_science_salaries_app/dockerfile.png" class="img-responsive" alt="image">
+
+          <p>After creating the Dockerfile, we run the following command on the terminal in order to create a Docker Image (make sure you run the command from the app folder). The name of the app is optional.</p>
+
+          <p>docker build -t my_streamlit_app .</p>
+          <p>After a minute a two, it is done! Your Docker Image is created, you can check the image by going to Docker Desktop, or just running the following command in the terminal: docker image ls</p>
+          <p>You can now containerize it, and run it locally to check if everything is in order: docker run -p 8501:8501 my_streamlit_app</p>
+          <p>Check out your Docker Desktop, there you will find the newly created image of your app, and it says it is in use. Click on it, there you will see the port 8501:8501 which then will take you to your application.</p>
+
+          <h3><strong>Pushing the Docker Image to AWS ECR</strong></h3>
+          <p>This part technically requires 2 steps:</p>
+
+          <ul>
+            <li>Creating a repository for your application</li>
+            <li>Pushing the Docker Image to that repository</li>
+          </ul>
+
+          <p>Creating a repository for your application is simple. Login to your AWS account, go to ECR, and create a private repository.</p>
+
+          <img src="../projects/img/data_science_salaries_app/aws_ecr_repo.png" class="img-responsive" alt="image">
+
+          <p>However, pushing your Docker Image to the repository requires additional steps:</p>
+
+          <ul>
+            <li>Install AWS CLI on your machine. With this handy tool you will be able to control multiple AWS services from the terminal</li>
+            <li>Go to your IAM management, and create a new user which will only be used for out project</li>
+            <li>In the Permission section choose Attach existing policies directly and in the below list selct AmazonEC2ContainerRegistryFullAccess.</li>
+            <li>Once the user has been created, select it and go to Access Key. There you will be able to retrieve your Access Key and Secret Access Key — which are not to be shared. Keep these at a safe place.</li>
+            <li>In the terminal type the following: aws configure - It will prompt you with four questions (Access Key, Secret Access Key, Region Name, Default Output Format</li>
+            <li>Login to your user through the terminal. There is a handy little shortcut in the upper right corner of your repository View Push Commands— it shows you already created links which you can just copy and paste to your terminal:</li>
+          </ul>
+
+          <img src="../projects/img/data_science_salaries_app/aws_repo_push_commands.png" class="img-responsive" alt="image">
+
+          <p>First one is authentication. We already have our image so we can skip the second command. The third one tags your Docker Image, and the fourth command pushes your image to the repository:</p>
+
+          <img src="../projects/img/data_science_salaries_app/aws_ecr_uploaded_docker_image.png" class="img-responsive" alt="image">
+
+          <p>There we have it. Let’s now proceed to deploy our app.</p>
+
+          <h3><strong>Deploying the application</strong></h3>
+          <p>The application will be deployed using the Amazon ECS. These are steps to follow:</p>
+
+          <ul>
+            <li>Create an ECS Cluster which represents the group of your container instances which will be used to run tasks we will define. I created a cluster using the EC2 Linux + Networking Template.</li>
+            <li>In the Cluster Configuration section you need to define your cluster name, and select your instance type (I chose the t2.micro). Use the default VPC from the drop down menu, and add a subnet (I used us-east-1a). Make sure to enable the Auto assign public IP, and chose a default security group. Now just create the cluster.</li>
+            <li>Once your cluster has been created, chose the Create Task Definition option, and select EC2. Enter the name of the task you wish. The following options are to select the task memory and task CPU (my choices were 100MiB, and 1 vcpu)</li>
+            <li>Add a container to your task: select a name you wish, and paste the Image URI into the Image box. It’s important to select the port mapping as the ones you used in your Dockerfile. Once finished, click add, and create task.</li>
+            <li>Now we need to run the task by going to our cluster, and selecting the Run Task option. Launch tpe should be set to EC2, and task definition as previously created, as well as the cluster you created. Now we just run the task.</li>
+
+            <img src="../projects/img/data_science_salaries_app/ds-salaries-cluster.png" class="img-responsive" alt="image">
+
+            <li>Check the EC2 instances that are running:</li>
+
+            <img src="../projects/img/data_science_salaries_app/ec2_instance.png" class="img-responsive" alt="image">
+
+            <li>In order to run the application, copy the Public IPv4 address, and add the :port_number you entered when creating the task definition.</li>
+            <li>If the application is now showing, you can adjust the Security inbound settings of your instance, the option next to Details:</li>
+
+            <img src="../projects/img/data_science_salaries_app/inbound_security_rules.png" class="img-responsive" alt="image">
+            <p>Add your own custom rules, with the port you previosly selected, and add both IPv4 and IPv6.</p>
+
+            <li>Run the application just as before, and enjoy!</li>
+          </ul>   
         </div>
 
       </div>
