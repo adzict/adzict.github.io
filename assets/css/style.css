@@ -45,7 +45,7 @@ p {
   margin: 25px 0;
   padding: 0;
   font-size: 15px;
-  color: #999999;
+  color: #333333;
   line-height: 28px;
 }
 
@@ -485,7 +485,7 @@ p {
 #about {
   width: 100%;
   height: auto;
-  background: #f7f7f7;
+  background: #e4e1e4;
   padding-top: 120px;
 }
 
