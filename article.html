@@ -15,8 +15,9 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Projects — Aml Hassan Esmail</title>
+  <title>Article — Aml Hassan Esmail</title>
   <meta content="" name="description">
+  <meta content="" name="keywords">
 
   <!-- Favicons -->
   <link href="assets/img/dev_favicon.ico" rel="icon">
@@ -48,34 +49,39 @@
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link" href="index.html">Home</a></li>
-          <li><a class="nav-link active" href="projects.html">Projects</a></li>
+          <li><a class="nav-link" href="projects.html">Projects</a></li>
           <li><a class="nav-link" href="blogs.html">Blog</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav>
 
     </div>
-  </header><!-- End Header -->
+  </header>
 
   <main id="main">
 
-    <div id="journal-blog" class="text-left paddsections">
+    <!-- ======= Article ======= -->
+    <div class="main-content paddsection">
       <div class="container">
-        <div class="section-title text-center">
-          <h2>Projects</h2>
-        </div>
-      </div>
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-8">
 
-      <div class="container">
-        <div class="journal-block">
-          <div class="row" id="project-cards">
-            <!-- Auto-populated from content.json -->
+            <div class="article-header mb-30">
+              <span id="article-category" class="article-category"></span>
+              <h2 id="article-title"></h2>
+              <span id="article-date" class="article-date"></span>
+            </div>
+
+            <div id="article-content" class="article-body">
+              <p>Loading...</p>
+            </div>
+
           </div>
         </div>
       </div>
     </div>
 
-  </main><!-- End #main -->
+  </main>
 
   <!-- ======= Footer ======= -->
   <div id="footer" class="text-center">
@@ -92,7 +98,7 @@
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
-  </div><!-- End Footer -->
+  </div>
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
@@ -101,15 +107,16 @@
   <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
 
+  <!-- Marked.js for Markdown rendering -->
+  <script src="assets/vendor/marked/marked.min.js"></script>
+
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
   <!-- Content Loader -->
   <script src="assets/js/content-loader.js"></script>
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      renderCards('projects', 'project-cards');
-    });
+    document.addEventListener('DOMContentLoaded', loadArticle);
   </script>
 
 </body>

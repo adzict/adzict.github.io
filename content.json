@@ -1,0 +1,84 @@
+{
+  "projects": [
+    {
+      "id": "multi-agent-web-scraping",
+      "title": "Multi-Agent Web Scraping System",
+      "category": "AI Agents",
+      "description": "AI-powered web scraping system using LLMs to automatically generate extraction code from any website's HTML structure. Multi-agent orchestrator extracts links, clusters pages by similarity, and reuses code across templates. Tested on Arabic news sites, extracting 230+ articles in a single run.",
+      "image": "",
+      "date": "2024-06-01",
+      "github": "https://github.com/Aml-Hassan-Abd-El-hamid"
+    },
+    {
+      "id": "bilingual-text-clustering",
+      "title": "Clustering Bilingual Texts (Arabic & English)",
+      "category": "NLP",
+      "description": "Fast bilingual text clustering system using Louvain community detection, benchmarking multiple embedding models to optimise for speed and accuracy.",
+      "image": "",
+      "date": "2024-05-01",
+      "github": "https://github.com/Aml-Hassan-Abd-El-hamid"
+    },
+    {
+      "id": "arabic-rag-system",
+      "title": "Arabic Islamic Inheritance RAG System",
+      "category": "RAG",
+      "description": "RAG system combining dense vector embeddings with LLM generation to answer complex questions about Islamic inheritance law. Achieved 12.5% improvement in accuracy over base generation model using FAISS, SentenceTransformer, and Qwen2.5:7B.",
+      "image": "",
+      "date": "2025-01-01",
+      "github": "https://github.com/Aml-Hassan-Abd-El-hamid"
+    },
+    {
+      "id": "semantic-search",
+      "title": "Semantic Search in Text",
+      "category": "NLP",
+      "description": "System for asymmetric semantic search between queries and text, experimenting with different embedding models and distance metrics.",
+      "image": "",
+      "date": "2024-03-01",
+      "github": "https://github.com/Aml-Hassan-Abd-El-hamid"
+    },
+    {
+      "id": "cat-breed-classification",
+      "title": "Cat Breed Classification",
+      "category": "Deep Learning",
+      "description": "Web application that classifies cat breeds using a custom dataset constructed from 3 different datasets and Google Images. Built with Flask, HTML/CSS/JS, and PyTorch.",
+      "image": "",
+      "date": "2023-06-01",
+      "github": "https://github.com/Aml-Hassan-Abd-El-hamid"
+    },
+    {
+      "id": "lip-sync-ai-system",
+      "title": "Lip-Sync AI System",
+      "category": "Computer Vision",
+      "description": "AI system that takes an input image and audio to generate a video with lip-synced speech. Built with Wav2Lip and deployed on Streamlit.",
+      "image": "",
+      "date": "2024-01-01",
+      "github": "https://github.com/Aml-Hassan-Abd-El-hamid"
+    }
+  ],
+  "blogs": [
+    {
+      "id": "federated-learning-intro",
+      "title": "What's Federated Learning and Why Is It Needed?",
+      "category": "Machine Learning",
+      "description": "A short introduction to Federated Learning and its categories.",
+      "image": "assets/img/fl.jpg",
+      "date": "2023-11-01"
+    },
+    {
+      "id": "cleaning-preparing-movie-data",
+      "title": "How To | Cleaning and Preparing a Movie Dataset",
+      "category": "Data Science",
+      "description": "A post about data cleaning from the how-to series, covering missing values, duplicates, outliers, and mismatched data types.",
+      "image": "blogs/img/box_office_data_cleaning/header.jpeg",
+      "date": "2023-04-01"
+    },
+    {
+      "id": "basic-text-preparation-spacy",
+      "title": "Learning | Basic Text Preparation with spaCy",
+      "category": "NLP",
+      "description": "Learn how to use basic functionalities of spaCy to prepare your text for further analysis.",
+      "image": "blogs/img/spacy_blog/0 - header.jpg",
+      "date": "2023-05-01"
+    }
+  ]
+}
