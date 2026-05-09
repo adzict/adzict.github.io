@@ -1,135 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
   <title>Customer Targeting with Predictive Analytics | Tanja Adžić</title>
-  <meta content="Built a predictive model to identify high-potential customers and support targeted business outreach." name="description">
+  <meta content="A customer analytics project using historical banking data to score potential customers and identify the strongest leads for mortgage outreach." name="description">
+  
+<style>
+  :root { --ink:#292929; --muted:#777; --line:#e9ecef; --soft:#f8f9fb; --dark:#111827; --accent:#22d3ee; }
+  body { font-family: Arial, Helvetica, sans-serif; color: var(--ink); margin:0; background:#fff; }
+  a { color:#292929; text-decoration:none; }
+  a:hover { color:#777; }
+  .case-nav { padding:26px 0; border-bottom:1px solid var(--line); background:#fff; position:sticky; top:0; z-index:5; }
+  .case-nav .wrap { max-width:1120px; margin:0 auto; padding:0 24px; display:flex; justify-content:space-between; align-items:center; gap:20px; }
+  .brand { font-size:18px; letter-spacing:1px; text-transform:lowercase; font-weight:600; }
+  .navlinks a { margin-left:22px; font-size:12px; text-transform:uppercase; letter-spacing:1.5px; color:#555; }
+  .wrap { max-width:1120px; margin:0 auto; padding:0 24px; }
+  .hero { padding:70px 0 45px; }
+  .eyebrow { font-size:12px; text-transform:uppercase; letter-spacing:2px; color:#999; margin-bottom:14px; }
+  h1 { font-size:44px; line-height:1.12; margin:0 0 18px; font-weight:700; letter-spacing:-.5px; }
+  h2 { font-size:26px; margin:0 0 22px; font-weight:700; }
+  h3 { font-size:19px; margin:0 0 12px; }
+  p { color:var(--muted); font-size:15px; line-height:1.8; }
+  .lead { max-width:820px; font-size:17px; color:#555; }
+  .hero-img { margin-top:34px; border-radius:24px; overflow:hidden; box-shadow:0 24px 70px rgba(0,0,0,.18); border:1px solid rgba(0,0,0,.08); background:#111827; }
+  .hero-img img, .visual-card img { width:100%; display:block; height:auto; }
+  .section { padding:42px 0; border-top:1px solid var(--line); }
+  .grid { display:grid; gap:24px; }
+  .grid-2 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .grid-3 { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .snapshot { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:18px; margin-top:24px; }
+  .snap-card, .text-card, .finding, .recommendation { background:var(--soft); border:1px solid var(--line); border-radius:18px; padding:22px; }
+  .snap-label { font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:#999; margin-bottom:8px; }
+  .snap-value { font-size:16px; font-weight:700; color:#333; line-height:1.45; }
+  .visual-card { background:#fff; border:1px solid var(--line); border-radius:22px; overflow:hidden; box-shadow:0 14px 34px rgba(0,0,0,.06); }
+  .visual-caption { padding:18px 20px 20px; }
+  .visual-caption p { margin:0; font-size:14px; }
+  ul.clean { margin:0; padding-left:18px; color:#777; line-height:1.8; font-size:15px; }
+  .tags { display:flex; flex-wrap:wrap; gap:10px; margin-top:18px; }
+  .tag { font-size:11px; text-transform:uppercase; letter-spacing:1px; padding:9px 11px; background:#f1f5f9; color:#475569; border-radius:999px; }
+  .back { display:inline-block; margin:42px 0 70px; font-size:12px; text-transform:uppercase; letter-spacing:1.5px; color:#555; }
+  .footer { padding:28px 0; border-top:1px solid var(--line); color:#999; font-size:13px; }
+  @media (max-width:900px){ .grid-2,.grid-3,.snapshot{grid-template-columns:1fr;} h1{font-size:34px;} .case-nav .wrap{align-items:flex-start; flex-direction:column;} .navlinks a{margin-left:0; margin-right:16px;} }
+</style>
 
-  <link href="../assets/img/favicon.png" rel="icon">
-  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
-
-  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="../assets/css/style.css" rel="stylesheet">
-
-  <style>
-    .case-study-hero { padding-top: 120px; padding-bottom: 35px; }
-    .case-study-hero h1 { font-size: 34px; line-height: 1.3; margin-bottom: 15px; }
-    .case-study-hero p { color: #777; font-size: 16px; line-height: 1.8; max-width: 880px; }
-    .case-study-image { width: 100%; border-radius: 4px; margin-bottom: 35px; }
-    .case-study-section { margin-bottom: 32px; }
-    .case-study-section h3 { font-size: 20px; margin-bottom: 14px; color: #292929; }
-    .case-study-section p, .case-study-section li { color: #777; line-height: 1.8; font-size: 15px; }
-    .snapshot-box { background: #f8f8f8; padding: 24px; margin-bottom: 35px; border-left: 4px solid #b8a07e; }
-    .snapshot-box p { margin-bottom: 8px; color: #555; }
-    .tag-list { display: flex; flex-wrap: wrap; gap: 8px; padding-left: 0; list-style: none; }
-    .tag-list li { background: #f5f5f5; border: 1px solid #eeeeee; color: #555; padding: 7px 10px; font-size: 12px; text-transform: uppercase; letter-spacing: .7px; }
-    .back-link { display: inline-block; margin-top: 20px; text-transform: uppercase; letter-spacing: 1.4px; font-size: 12px; }
-  </style>
 </head>
-
 <body>
-
-  <header id="header" class="fixed-top">
-    <div class="container d-flex align-items-center justify-content-between">
-      <h1 class="logo"><a href="../index.html">tanja adžić</a></h1>
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto" href="../index.html#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="../index.html#case_studies">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="../index.html#portfolio">Projects</a></li>
-          <li><a class="nav-link scrollto" href="../index.html#journal">Blog</a></li>
-          <li><a class="nav-link scrollto" href="../index.html#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav>
-    </div>
-  </header>
-
-  <main id="main">
-    <div class="container case-study-hero">
-      <h1>Customer Targeting with Predictive Analytics</h1>
-      <p>Predictive analytics case study for identifying customers with a higher likelihood of taking a mortgage product.</p>
-    </div>
-
-    <div class="container">
-      <img src="img/customer-targeting-predictive-analytics.svg" class="case-study-image" alt="Customer Targeting with Predictive Analytics">
-
-      <div class="snapshot-box">
-        <p><strong>Role:</strong> Data Analyst / Junior Data Scientist</p>
-        <p><strong>Tools:</strong> Python, Pandas, Scikit-learn, XGBoost, Matplotlib, Seaborn</p>
-        <p><strong>Project Type:</strong> Interview case study</p>
-        <p><strong>Focus:</strong> Customer targeting, classification, probability scoring, business recommendations</p>
-      </div>
-
-      <div class="case-study-section">
-        <h3>Business Problem</h3>
-        <p>The business needed to identify potential customers who were likely to take out a mortgage, so relationship managers could focus outreach on the most promising leads.</p>
-      </div>
-
-      <div class="case-study-section">
-        <h3>Goal</h3>
-        <p>Build a predictive model that scores potential customers by probability and provide a prioritized customer list for business follow-up.</p>
-      </div>
-
-      <div class="case-study-section">
-        <h3>What I Did</h3>
-        <ul>
-          <li>Performed exploratory data analysis on historical customer data.</li>
-          <li>Cleaned and transformed customer attributes for modeling.</li>
-          <li>Handled missing values and imbalanced target classes.</li>
-          <li>Tested multiple classification models and used XGBoost for probability prediction.</li>
-          <li>Created visual summaries for a non-technical business audience.</li>
-        </ul>
-      </div>
-
-      <div class="case-study-section">
-        <h3>Key Analysis / Visuals</h3>
-        <ul>
-          <li>Target variable imbalance</li>
-          <li>Customer demographics</li>
-          <li>Income and balance distribution</li>
-          <li>Top customers by predicted probability</li>
-        </ul>
-      </div>
-
-      <div class="case-study-section">
-        <h3>Outcome / Recommendations</h3>
-        <p>Delivered a ranked list of high-potential customers and recommended targeted outreach, followed by campaign tracking to validate model performance in real business conditions.</p>
-      </div>
-
-      <div class="case-study-section">
-        <h3>Skills Demonstrated</h3>
-        <ul class="tag-list">
-          <li>Python</li>
-          <li>EDA</li>
-          <li>Data Preprocessing</li>
-          <li>Classification</li>
-          <li>Predictive Analytics</li>
-          <li>Stakeholder Presentation</li>
-        </ul>
-      </div>
-
-      <a class="back-link" href="../index.html#case_studies">← Back to Portfolio</a>
-    </div>
+  <nav class="case-nav"><div class="wrap"><a class="brand" href="../index.html">tanja adžić</a><div class="navlinks"><a href="../index.html#case_studies">Case Studies</a><a href="../index.html#portfolio">Projects</a><a href="../index.html#contact">Contact</a></div></div></nav>
+  <main>
+    <section class="hero"><div class="wrap"><div class="eyebrow">Anonymized portfolio case study</div><h1>Customer Targeting with Predictive Analytics</h1><p class="lead">A customer analytics project using historical banking data to score potential customers and identify the strongest leads for mortgage outreach.</p><div class="hero-img"><img src="img/customer-targeting-dashboard.svg" alt="Customer Targeting with Predictive Analytics dashboard preview"></div></div></section>
+    <section class="section"><div class="wrap"><h2>Project Snapshot</h2><div class="snapshot"><div class="snap-card"><div class="snap-label">Role</div><div class="snap-value">Data Analyst / Junior Data Scientist</div></div><div class="snap-card"><div class="snap-label">Tools</div><div class="snap-value">Python, Pandas, Scikit-learn, XGBoost</div></div><div class="snap-card"><div class="snap-label">Data focus</div><div class="snap-value">Binary classification</div></div><div class="snap-card"><div class="snap-label">Output</div><div class="snap-value">Top 100 scored customers</div></div></div></div></section>
+    <section class="section"><div class="wrap grid grid-2"><div class="text-card"><h2>Business Question</h2><p>Relationship managers needed a practical way to prioritize which potential customers were most likely to be interested in a mortgage product.</p></div><div class="text-card"><h2>My Analytical Approach</h2><ul class="clean"><li>Performed exploratory analysis on historical customer data.</li><li>Cleaned numeric and categorical variables, handled missing values and transformed skewed variables.</li><li>Addressed a highly imbalanced target variable with resampling.</li><li>Trained and compared classification models and used probability scoring for the potential-customer dataset.</li><li>Prepared business-friendly visuals for the top-scored customer group.</li></ul></div></div></section>
+    <section class="section"><div class="wrap"><h2>Selected Visuals from the Analysis</h2><div class="grid grid-2"><div class="visual-card"><img src="img/customer-pipeline.svg" alt="Data pipeline"><div class="visual-caption"><h3>Data Pipeline</h3><p>A simplified view of the end-to-end workflow from raw data to a ranked lead list.</p></div></div><div class="visual-card"><img src="img/customer-imbalance-chart.svg" alt="Class imbalance chart"><div class="visual-caption"><h3>Class Imbalance</h3><p>The positive class was very small, so model evaluation required more than accuracy.</p></div></div><div class="visual-card"><img src="img/customer-top100-table.svg" alt="Top 100 table"><div class="visual-caption"><h3>Top 100 Scoring Output</h3><p>An anonymized example of how the model output can be presented to business stakeholders.</p></div></div></div></div></section>
+    <section class="section"><div class="wrap"><h2>Key Findings</h2><div class="grid grid-3"><div class="finding"><h3>Strong imbalance</h3><p>Only 306 of 23,983 historical customers had a mortgage in the challenge dataset, so the model had to be evaluated carefully.</p></div><div class="finding"><h3>Actionable scoring</h3><p>The model output was converted into a ranked list, which is more useful for a CRM team than a raw prediction label.</p></div><div class="finding"><h3>Business interpretation</h3><p>The final presentation focused on who to approach, what variables describe the top group, and how to validate results with campaign data.</p></div></div></div></section>
+    <section class="section"><div class="wrap"><h2>Recommendations / Outcome</h2><div class="grid grid-3"><div class="recommendation"><h3>Use CRM follow-up</h3><p>Share the top-scored customers with relationship managers for targeted outreach.</p></div><div class="recommendation"><h3>Track campaign response</h3><p>Collect response data from outreach campaigns and compare predicted probability with real conversion.</p></div><div class="recommendation"><h3>Explore segmentation</h3><p>Use clustering or segmentation to refine messaging for different customer groups.</p></div></div></div></section>
+    <section class="section"><div class="wrap"><h2>Skills Demonstrated</h2><div class="tags"><span class="tag">Python</span><span class="tag">EDA</span><span class="tag">Data Cleaning</span><span class="tag">Classification</span><span class="tag">XGBoost</span><span class="tag">SMOTE</span><span class="tag">Customer Analytics</span><span class="tag">Stakeholder Presentation</span></div><a class="back" href="../index.html#case_studies">← Back to case studies</a></div></section>
   </main>
-
-  <footer>
-    <div class="container">
-      <div class="credits">© Copyrights Folio. All rights reserved.</div>
-    </div>
-  </footer>
-
-  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="../assets/js/main.js"></script>
-
+  <footer class="footer"><div class="wrap">© Tanja Adžić · Case study content is anonymized for public portfolio use.</div></footer>
 </body>
 </html>

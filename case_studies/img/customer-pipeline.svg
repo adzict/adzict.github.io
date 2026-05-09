@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="case study visual">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="55%" stop-color="#1f2937"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="50%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <style>
+      .title{font:800 48px Arial, sans-serif;fill:#f8fafc;letter-spacing:-1px}
+      .subtitle{font:400 22px Arial, sans-serif;fill:#cbd5e1}
+      .label{font:700 15px Arial, sans-serif;fill:#94a3b8;text-transform:uppercase;letter-spacing:1.2px}
+      .value{font:800 34px Arial, sans-serif;fill:#f8fafc}
+      .small{font:500 16px Arial, sans-serif;fill:#cbd5e1}
+      .tiny{font:500 13px Arial, sans-serif;fill:#94a3b8}
+      .card{fill:rgba(15,23,42,0.72);stroke:rgba(255,255,255,0.12);stroke-width:1.2;filter:url(#shadow)}
+      .mini{fill:rgba(255,255,255,0.08);stroke:rgba(255,255,255,0.16)}
+      .axis{stroke:#475569;stroke-width:2}
+      .grid{stroke:#334155;stroke-width:1;opacity:.55}
+      .cyan{fill:#22d3ee} .purple{fill:#a78bfa} .orange{fill:#fb923c} .green{fill:#34d399} .red{fill:#fb7185} .yellow{fill:#facc15}
+      .line-cyan{stroke:#22d3ee;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .line-purple{stroke:#a78bfa;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .line-orange{stroke:#fb923c;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .line-red{stroke:#fb7185;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/></marker>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="1040" cy="80" r="230" fill="#22d3ee" opacity=".08"/>
+  <circle cx="80" cy="620" r="220" fill="#a78bfa" opacity=".08"/>
+  <path d="M880 0 C930 150 1080 160 1200 90 L1200 0 Z" fill="url(#accent)" opacity=".18"/>
+  <text x="70" y="70" class="label">SELECTED VISUAL</text><text x="70" y="125" class="title">Data Pipeline</text>
+    <text x="70" y="160" class="subtitle">From raw customer data to ranked outreach list.</text><rect x="60" y="300" width="118" height="92" rx="22" class="card"/><text x="119" y="355" text-anchor="middle" class="small">Raw data</text><path d="M178 346 L198 346" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)"/><rect x="198" y="300" width="118" height="92" rx="22" class="card"/><text x="257" y="355" text-anchor="middle" class="small">EDA</text><path d="M316 346 L336 346" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)"/><rect x="336" y="300" width="118" height="92" rx="22" class="card"/><text x="395" y="355" text-anchor="middle" class="small">Cleaning</text><path d="M454 346 L474 346" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)"/><rect x="474" y="300" width="118" height="92" rx="22" class="card"/><text x="533" y="355" text-anchor="middle" class="small">Encoding</text><path d="M592 346 L612 346" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)"/><rect x="612" y="300" width="118" height="92" rx="22" class="card"/><text x="671" y="355" text-anchor="middle" class="small">SMOTE</text><path d="M730 346 L750 346" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)"/><rect x="750" y="300" width="118" height="92" rx="22" class="card"/><text x="809" y="355" text-anchor="middle" class="small">XGBoost</text><path d="M868 346 L888 346" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)"/><rect x="888" y="300" width="118" height="92" rx="22" class="card"/><text x="947" y="355" text-anchor="middle" class="small">Probability</text><path d="M1006 346 L1026 346" stroke="#94a3b8" stroke-width="3" marker-end="url(#arrow)"/><rect x="1026" y="300" width="118" height="92" rx="22" class="card"/><text x="1085" y="355" text-anchor="middle" class="small">Top 100</text>
+</svg>

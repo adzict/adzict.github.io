@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="case study visual">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="55%" stop-color="#1f2937"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="50%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <style>
+      .title{font:800 48px Arial, sans-serif;fill:#f8fafc;letter-spacing:-1px}
+      .subtitle{font:400 22px Arial, sans-serif;fill:#cbd5e1}
+      .label{font:700 15px Arial, sans-serif;fill:#94a3b8;text-transform:uppercase;letter-spacing:1.2px}
+      .value{font:800 34px Arial, sans-serif;fill:#f8fafc}
+      .small{font:500 16px Arial, sans-serif;fill:#cbd5e1}
+      .tiny{font:500 13px Arial, sans-serif;fill:#94a3b8}
+      .card{fill:rgba(15,23,42,0.72);stroke:rgba(255,255,255,0.12);stroke-width:1.2;filter:url(#shadow)}
+      .mini{fill:rgba(255,255,255,0.08);stroke:rgba(255,255,255,0.16)}
+      .axis{stroke:#475569;stroke-width:2}
+      .grid{stroke:#334155;stroke-width:1;opacity:.55}
+      .cyan{fill:#22d3ee} .purple{fill:#a78bfa} .orange{fill:#fb923c} .green{fill:#34d399} .red{fill:#fb7185} .yellow{fill:#facc15}
+      .line-cyan{stroke:#22d3ee;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .line-purple{stroke:#a78bfa;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .line-orange{stroke:#fb923c;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .line-red{stroke:#fb7185;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+    
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="1040" cy="80" r="230" fill="#22d3ee" opacity=".08"/>
+  <circle cx="80" cy="620" r="220" fill="#a78bfa" opacity=".08"/>
+  <path d="M880 0 C930 150 1080 160 1200 90 L1200 0 Z" fill="url(#accent)" opacity=".18"/>
+  <text x="70" y="70" class="label">CASE STUDY · STATISTICAL MODELING</text><text x="70" y="125" class="title">Vehicle Predictive Analysis</text>
+    <text x="70" y="160" class="subtitle">Regression and classification workflows on vehicle datasets</text><rect x="70" y="210" width="245" height="145" rx="24" class="card"/>
+    <rect x="92" y="232" width="10" height="101" rx="5" fill="#22d3ee"/>
+    <text x="118" y="253" class="label">Transmission</text>
+    <text x="118" y="298" class="value">32 cars</text>
+    <text x="118" y="330" class="small">classification task</text><rect x="345" y="210" width="245" height="145" rx="24" class="card"/>
+    <rect x="367" y="232" width="10" height="101" rx="5" fill="#a78bfa"/>
+    <text x="393" y="253" class="label">Stopping distance</text>
+    <text x="393" y="298" class="value">50 rows</text>
+    <text x="393" y="330" class="small">regression task</text><rect x="620" y="210" width="245" height="145" rx="24" class="card"/>
+    <rect x="642" y="232" width="10" height="101" rx="5" fill="#fb923c"/>
+    <text x="668" y="253" class="label">Methods</text>
+    <text x="668" y="298" class="value">4 models</text>
+    <text x="668" y="330" class="small">comparison workflow</text><rect x="895" y="210" width="235" height="145" rx="24" class="card"/>
+    <rect x="917" y="232" width="10" height="101" rx="5" fill="#34d399"/>
+    <text x="943" y="253" class="label">Focus</text>
+    <text x="943" y="298" class="value">Interpret</text>
+    <text x="943" y="330" class="small">not only predict</text><rect x="70" y="410" width="500" height="200" rx="26" class="card"/><text x="100" y="450" class="label">Speed vs stopping distance</text><circle cx="120" cy="550" r="7" fill="#22d3ee" opacity=".9"/><circle cx="170" cy="535" r="7" fill="#22d3ee" opacity=".9"/><circle cx="220" cy="520" r="7" fill="#22d3ee" opacity=".9"/><circle cx="260" cy="500" r="7" fill="#22d3ee" opacity=".9"/><circle cx="310" cy="485" r="7" fill="#22d3ee" opacity=".9"/><circle cx="350" cy="455" r="7" fill="#22d3ee" opacity=".9"/><circle cx="390" cy="440" r="7" fill="#22d3ee" opacity=".9"/><circle cx="430" cy="400" r="7" fill="#22d3ee" opacity=".9"/><circle cx="470" cy="375" r="7" fill="#22d3ee" opacity=".9"/><circle cx="520" cy="340" r="7" fill="#22d3ee" opacity=".9"/><path d="M110 560 L525 330" class="line-orange"/><rect x="620" y="410" width="510" height="200" rx="26" class="card"/><text x="650" y="450" class="label">Model comparison</text><line x1="665" y1="570" x2="1060" y2="570" class="axis"/>
+<rect x="717.0" y="508.8" width="33.8" height="61.2" rx="6" fill="#22d3ee" opacity=".92"/>
+<text x="733.9" y="595" text-anchor="middle" class="tiny">Linear</text>
+<rect x="802.7" y="498.6" width="33.8" height="71.4" rx="6" fill="#a78bfa" opacity=".92"/>
+<text x="819.6" y="595" text-anchor="middle" class="tiny">Poly</text>
+<rect x="888.5" y="503.7" width="33.8" height="66.3" rx="6" fill="#fb923c" opacity=".92"/>
+<text x="905.4" y="595" text-anchor="middle" class="tiny">RF</text>
+<rect x="974.2" y="501.1" width="33.8" height="68.9" rx="6" fill="#34d399" opacity=".92"/>
+<text x="991.1" y="595" text-anchor="middle" class="tiny">GB</text>
+</svg>

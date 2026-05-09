@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="case study visual">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="55%" stop-color="#1f2937"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="50%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <style>
+      .title{font:800 48px Arial, sans-serif;fill:#f8fafc;letter-spacing:-1px}
+      .subtitle{font:400 22px Arial, sans-serif;fill:#cbd5e1}
+      .label{font:700 15px Arial, sans-serif;fill:#94a3b8;text-transform:uppercase;letter-spacing:1.2px}
+      .value{font:800 34px Arial, sans-serif;fill:#f8fafc}
+      .small{font:500 16px Arial, sans-serif;fill:#cbd5e1}
+      .tiny{font:500 13px Arial, sans-serif;fill:#94a3b8}
+      .card{fill:rgba(15,23,42,0.72);stroke:rgba(255,255,255,0.12);stroke-width:1.2;filter:url(#shadow)}
+      .mini{fill:rgba(255,255,255,0.08);stroke:rgba(255,255,255,0.16)}
+      .axis{stroke:#475569;stroke-width:2}
+      .grid{stroke:#334155;stroke-width:1;opacity:.55}
+      .cyan{fill:#22d3ee} .purple{fill:#a78bfa} .orange{fill:#fb923c} .green{fill:#34d399} .red{fill:#fb7185} .yellow{fill:#facc15}
+      .line-cyan{stroke:#22d3ee;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .line-purple{stroke:#a78bfa;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .line-orange{stroke:#fb923c;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .line-red{stroke:#fb7185;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+    
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="1040" cy="80" r="230" fill="#22d3ee" opacity=".08"/>
+  <circle cx="80" cy="620" r="220" fill="#a78bfa" opacity=".08"/>
+  <path d="M880 0 C930 150 1080 160 1200 90 L1200 0 Z" fill="url(#accent)" opacity=".18"/>
+  <text x="70" y="70" class="label">SELECTED VISUAL</text><text x="70" y="125" class="title">Feature Engineering</text>
+    <text x="70" y="160" class="subtitle">Examples of variables created to strengthen model interpretation.</text><rect x="100" y="230" width="460" height="125" rx="28" class="card"/><text x="130" y="280" class="value" font-size="30">Engine Performance Index</text><text x="130" y="318" class="small">hp + disp + cyl</text><rect x="620" y="230" width="460" height="125" rx="28" class="card"/><text x="650" y="280" class="value" font-size="30">Fuel Efficiency Ratio</text><text x="650" y="318" class="small">mpg / weight</text><rect x="100" y="395" width="460" height="125" rx="28" class="card"/><text x="130" y="445" class="value" font-size="30">Power-to-Weight Ratio</text><text x="130" y="483" class="small">hp / weight</text><rect x="620" y="395" width="460" height="125" rx="28" class="card"/><text x="650" y="445" class="value" font-size="30">Acceleration Index</text><text x="650" y="483" class="small">qsec + drat + gear</text>
+</svg>

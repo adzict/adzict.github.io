@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675" role="img" aria-label="case study visual">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#111827"/>
+      <stop offset="55%" stop-color="#1f2937"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22d3ee"/>
+      <stop offset="50%" stop-color="#a78bfa"/>
+      <stop offset="100%" stop-color="#f97316"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#000000" flood-opacity="0.35"/>
+    </filter>
+    <style>
+      .title{font:800 48px Arial, sans-serif;fill:#f8fafc;letter-spacing:-1px}
+      .subtitle{font:400 22px Arial, sans-serif;fill:#cbd5e1}
+      .label{font:700 15px Arial, sans-serif;fill:#94a3b8;text-transform:uppercase;letter-spacing:1.2px}
+      .value{font:800 34px Arial, sans-serif;fill:#f8fafc}
+      .small{font:500 16px Arial, sans-serif;fill:#cbd5e1}
+      .tiny{font:500 13px Arial, sans-serif;fill:#94a3b8}
+      .card{fill:rgba(15,23,42,0.72);stroke:rgba(255,255,255,0.12);stroke-width:1.2;filter:url(#shadow)}
+      .mini{fill:rgba(255,255,255,0.08);stroke:rgba(255,255,255,0.16)}
+      .axis{stroke:#475569;stroke-width:2}
+      .grid{stroke:#334155;stroke-width:1;opacity:.55}
+      .cyan{fill:#22d3ee} .purple{fill:#a78bfa} .orange{fill:#fb923c} .green{fill:#34d399} .red{fill:#fb7185} .yellow{fill:#facc15}
+      .line-cyan{stroke:#22d3ee;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .line-purple{stroke:#a78bfa;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .line-orange{stroke:#fb923c;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+      .line-red{stroke:#fb7185;stroke-width:5;fill:none;stroke-linecap:round;stroke-linejoin:round}
+    </style>
+    
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="1040" cy="80" r="230" fill="#22d3ee" opacity=".08"/>
+  <circle cx="80" cy="620" r="220" fill="#a78bfa" opacity=".08"/>
+  <path d="M880 0 C930 150 1080 160 1200 90 L1200 0 Z" fill="url(#accent)" opacity=".18"/>
+  <text x="70" y="70" class="label">SELECTED VISUAL</text><text x="70" y="125" class="title">Campaign KPI Table</text>
+    <text x="70" y="160" class="subtitle">A compact view of the metrics used to compare campaign performance.</text><rect x="70" y="205" width="1060" height="390" rx="28" class="card"/><text x="110" y="260" class="label">Metric</text><text x="430" y="260" class="label">Value</text><text x="620" y="260" class="label">Why it matters</text><line x1="100" y1="287" x2="1090" y2="287" stroke="#334155"/><text x="110" y="315" class="small">Successful deliveries</text><text x="430" y="315" class="small">9,874,537</text><text x="620" y="315" class="small">base for reliable engagement rates</text><line x1="100" y1="339" x2="1090" y2="339" stroke="#334155"/><text x="110" y="367" class="small">Weighted open rate</text><text x="430" y="367" class="small">26.0%</text><text x="620" y="367" class="small">audience interest / subject performance</text><line x1="100" y1="391" x2="1090" y2="391" stroke="#334155"/><text x="110" y="419" class="small">Weighted click rate</text><text x="430" y="419" class="small">1.68%</text><text x="620" y="419" class="small">content and CTA engagement</text><line x1="100" y1="443" x2="1090" y2="443" stroke="#334155"/><text x="110" y="471" class="small">Conversion rate</text><text x="430" y="471" class="small">0.37%</text><text x="620" y="471" class="small">orders from delivered emails</text><line x1="100" y1="495" x2="1090" y2="495" stroke="#334155"/><text x="110" y="523" class="small">Avg order value</text><text x="430" y="523" class="small">€559</text><text x="620" y="523" class="small">revenue quality of converted users</text>
+</svg>
